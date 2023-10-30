@@ -1,5 +1,7 @@
 @echo off
 
+echo Disabling transparency effects, animations, and setting display zoom...
+
 REM Disable transparency effects
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v EnableWindowColorization /t REG_DWORD /d 0 /f
@@ -10,11 +12,9 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 REM Set display zoom to 100%
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 96 /f
 
-echo Disabling transparency effects, animations, and setting display zoom...
-
 echo Uninstalling UWP apps...
 :: Uninstall UWP apps
-powershell -Command "Get-AppxPackage -Name AD2F1837.HPPCHardwareDiagnosticsWindows, AD2F1837.HPPowerManager, AD2F1837.HPPrivacySettings, AD2F1837.HPQuickDrop, AD2F1837.HPSupportAssistant, AD2F1837.HPSystemInformation, AD2F1837.myHP, Clipchamp.Clipchamp, Microsoft.BingNews, Microsoft.BingWeather, Microsoft.GamingApp, Microsoft.GetHelp, Microsoft.MicrosoftSolitaireCollection, Microsoft.People, Microsoft.PowerAutomateDesktop, Microsoft.Todos, Microsoft.Whiteboard, Microsoft.WindowsAlarms, Microsoft.WindowsCamera, microsoft.windowscommunicationsapps, Microsoft.WindowsFeedbackHub, Microsoft.WindowsMaps, Microsoft.WindowsSoundRecorder, Microsoft.WindowsTerminal, Microsoft.XboxGameCallableUI, Microsoft.Xbox.TCUI, Microsoft.XboxGameOverlay, Microsoft.XboxGamingOverlay, Microsoft.XboxSpeechToTextOverlay, Microsoft.YourPhone, MicrosoftCorporation.MicrosoftFamily, Microsoft.XboxIdentityProvider | Remove-AppxPackage"
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPPCHardwareDiagnosticsWindows, AD2F1837.HPPowerManager, AD2F1837.HPPrivacySettings, AD2F1837.HPQuickDrop, AD2F1837.HPSupportAssistant, AD2F1837.HPSystemInformation, AD2F1837.myHP, Clipchamp.Clipchamp, Microsoft.BingNews, Microsoft.BingWeather, Microsoft.GamingApp, Microsoft.GetHelp, Microsoft.MicrosoftSolitaireCollection, Microsoft.People, Microsoft.PowerAutomateDesktop, Microsoft.Todos, Microsoft.Whiteboard, Microsoft.WindowsAlarms, Microsoft.WindowsCamera, microsoft.windowscommunicationsapps, Microsoft.WindowsFeedbackHub, Microsoft.WindowsMaps, Microsoft.WindowsSoundRecorder, Microsoft.WindowsTerminal, Microsoft.XboxGameCallableUI, Microsoft.Xbox.TCUI, Microsoft.XboxGameOverlay, Microsoft.XboxGamingOverlay, Microsoft.XboxSpeechToTextOverlay, Microsoft.YourPhone, MicrosoftCorporation.MicrosoftFamily | Remove-AppxPackage"
 
 echo UWP apps uninstalled.
 
