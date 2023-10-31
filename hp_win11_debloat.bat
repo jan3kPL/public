@@ -115,13 +115,46 @@ echo Microsoft.XboxIdentityProvider uninstalled.
 
 echo UWP apps uninstalled.
 
-echo Uninstalling Win32 programs...
-:: Uninstall Win32 programs
-powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security - Console' -or $_.Name -eq 'HP Notifications' -or $_.Name -eq 'HP Security Update Service' -or $_.Name -eq 'HP Sure Recover' -or $_.Name -eq 'HP Wolf Security Application Support for Sure Sense' -or $_.Name -eq 'HP System Default Settings' -or $_.Name -eq 'HP Wolf Security' -or $_.Name -eq 'ICS' -or $_.Name -eq 'HP Sure Run Module' } | ForEach-Object { $_.Uninstall() }"
+@echo off
+
+:: Uninstall Win32 programs one by one
+echo Uninstalling Win32 program: HP Wolf Security - Console
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security - Console' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Wolf Security - Console' uninstalled.
+
+echo Uninstalling Win32 program: HP Notifications
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Notifications' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Notifications' uninstalled.
+
+echo Uninstalling Win32 program: HP Security Update Service
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Security Update Service' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Security Update Service' uninstalled.
+
+echo Uninstalling Win32 program: HP Sure Recover
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Sure Recover' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Sure Recover' uninstalled.
+
+echo Uninstalling Win32 program: HP Wolf Security Application Support for Sure Sense
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security Application Support for Sure Sense' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Wolf Security Application Support for Sure Sense' uninstalled.
+
+echo Uninstalling Win32 program: HP System Default Settings
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP System Default Settings' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP System Default Settings' uninstalled.
+
+echo Uninstalling Win32 program: HP Connection Optimizer
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Connection Optimizer' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Connection Optimizer' uninstalled.
+
+echo Uninstalling Win32 program: HP Documentation
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Documentation' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Documentation' uninstalled.
 
 echo Win32 programs uninstalled.
 
+echo Downloading TeamViewerQS
 powershell Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
 
-echo Script completed. Please restart your computer for changes to take effect.
 pause
+
+shutdown /r /t 0
