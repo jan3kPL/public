@@ -1,12 +1,14 @@
 # Set execution policy to Bypass
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
 
+Pause
+
 # Prompt for admin rights
 if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent).IsInRole('Administrators')) {
 
     Start-Process -FilePath powershell.exe -Verb RunAs -ArgumentList '-ExecutionPolicy Bypass -File "$($env:PSCommandPath)"'
 
-    Exit-Process
+::    Exit-Process
 
 }
 
