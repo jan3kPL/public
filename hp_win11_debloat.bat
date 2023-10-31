@@ -134,6 +134,8 @@ REM Uninstall Win32 programs one by one
 
 Get-Package *HP* | Uninstall-Package
 
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'ICS' } | ForEach-Object { $_.Uninstall() }"
+
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Connection Optimizer' } | ForEach-Object { $_.Uninstall() }"
 
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Documentation' } | ForEach-Object { $_.Uninstall() }"
