@@ -1,4 +1,4 @@
-# powershell.exe -ExecutionPolicy Bypass -File "C:\Path\To\YourScript.ps1"
+# powershell.exe -ExecutionPolicy Bypass -File "C:\Users\user\Desktop\ps1.ps1"
 
 $UninstallPackages = @(
     "AD2F1837.HPJumpStarts"
