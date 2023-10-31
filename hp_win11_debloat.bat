@@ -134,6 +134,10 @@ echo UWP apps uninstalled.
 :: Get-WmiObject -Class Win32_Product | Where-Object { $_.Publisher -eq "HP Inc." } | ForEach-Object { $_.Uninstall() }
 
 :: Uninstall Win32 programs one by one
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security' } | ForEach-Object { $_.Uninstall() }"
+echo Win32 program 'HP Wolf Security' uninstalled.
+
 echo Uninstalling Win32 program: HP Wolf Security - Console
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security - Console' } | ForEach-Object { $_.Uninstall() }"
 echo Win32 program 'HP Wolf Security - Console' uninstalled.
