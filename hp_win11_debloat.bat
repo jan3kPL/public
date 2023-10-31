@@ -187,6 +187,22 @@ winget install Google.Chrome
 winget install Jabra.Direct 
 winget install Poly.PlantronicsHub
 
+
+::# Define the publisher you want to target
+::$targetPublisher = "HP Inc."
+::
+::# Get a list of all installed Win32 apps
+::$apps = Get-WmiObject -Class Win32_Product
+::
+::# Filter and uninstall apps from the specified publisher
+::foreach ($app in $apps) {
+::    if ($app.Publisher -eq $targetPublisher) {
+::        Write-Host "Uninstalling $($app.Name)..."
+::        $app.Uninstall()
+::        Write-Host "$($app.Name) uninstalled."
+::    }
+::}
+
 pause
 
 shutdown /r /t 0
