@@ -109,6 +109,23 @@ echo MicrosoftCorporation.MicrosoftFamily uninstalled.
 powershell -Command "Get-AppxPackage -Name Microsoft.XboxIdentityProvider | Remove-AppxPackage"
 echo Microsoft.XboxIdentityProvider uninstalled.
 
+powershell -Command "Get-AppxPackage -Name Microsoft.Getstarted | Remove-AppxPackage"
+echo Microsoft.Getstarted uninstalled.
+
+powershell -Command "Get-AppxPackage -Name MicrosoftCorporationII.MicrosoftFamily | Remove-AppxPackage"
+echo MicrosoftCorporationII.MicrosoftFamily uninstalled.
+
+powershell -Command "Get-AppxPackage -Name RealtekSemiconductorCorp.HPAudioControl | Remove-AppxPackage"
+echo MicrosoftCorporationII.MicrosoftFamily uninstalled.
+
+echo Remove Cortana
+powershell -Command "Get-AppxPackage -Name Microsoft.549981C3F5F10 | Remove-AppxPackage"
+echo Microsoft.549981C3F5F10 uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.ZuneVideo | Remove-AppxPackage"
+echo Microsoft.ZuneVideo uninstalled.
+
+
 echo UWP apps uninstalled.
 
 @echo off
