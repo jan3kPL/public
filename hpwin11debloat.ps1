@@ -1,3 +1,12 @@
+# Self-elevate to admin
+if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent).IsInRole('Administrators')) {
+
+    Start-Process -FilePath powershell.exe -Verb RunAs -ArgumentList '-ExecutionPolicy Bypass -File "$($env:PSCommandPath)"'
+
+    Exit-Process
+
+}
+
 $UninstallPackages = @(
     "AD2F1837.HPJumpStarts"
     "AD2F1837.HPPCHardwareDiagnosticsWindows"
