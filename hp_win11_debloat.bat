@@ -12,9 +12,106 @@ reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Ad
 REM Set display zoom to 100%
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 96 /f
 
+@echo off
+
 echo Uninstalling UWP apps...
-:: Uninstall UWP apps
-powershell -Command "Get-AppxPackage -Name AD2F1837.HPPCHardwareDiagnosticsWindows, AD2F1837.HPPowerManager, AD2F1837.HPPrivacySettings, AD2F1837.HPQuickDrop, AD2F1837.HPSupportAssistant, AD2F1837.HPSystemInformation, AD2F1837.myHP, Clipchamp.Clipchamp, Microsoft.BingNews, Microsoft.BingWeather, Microsoft.GamingApp, Microsoft.GetHelp, Microsoft.MicrosoftSolitaireCollection, Microsoft.People, Microsoft.PowerAutomateDesktop, Microsoft.Todos, Microsoft.Whiteboard, Microsoft.WindowsAlarms, Microsoft.WindowsCamera, microsoft.windowscommunicationsapps, Microsoft.WindowsFeedbackHub, Microsoft.WindowsMaps, Microsoft.WindowsSoundRecorder, Microsoft.WindowsTerminal, Microsoft.XboxGameCallableUI, Microsoft.Xbox.TCUI, Microsoft.XboxGameOverlay, Microsoft.XboxGamingOverlay, Microsoft.XboxSpeechToTextOverlay, Microsoft.YourPhone, MicrosoftCorporation.MicrosoftFamily | Remove-AppxPackage"
+
+:: Uninstall UWP apps one by one
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPPCHardwareDiagnosticsWindows | Remove-AppxPackage"
+echo AD2F1837.HPPCHardwareDiagnosticsWindows uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPPowerManager | Remove-AppxPackage"
+echo AD2F1837.HPPowerManager uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPPrivacySettings | Remove-AppxPackage"
+echo AD2F1837.HPPrivacySettings uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPQuickDrop | Remove-AppxPackage"
+echo AD2F1837.HPQuickDrop uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPSupportAssistant | Remove-AppxPackage"
+echo AD2F1837.HPSupportAssistant uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.HPSystemInformation | Remove-AppxPackage"
+echo AD2F1837.HPSystemInformation uninstalled.
+
+powershell -Command "Get-AppxPackage -Name AD2F1837.myHP | Remove-AppxPackage"
+echo AD2F1837.myHP uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Clipchamp.Clipchamp | Remove-AppxPackage"
+echo Clipchamp.Clipchamp uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.BingNews | Remove-AppxPackage"
+echo Microsoft.BingNews uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.BingWeather | Remove-AppxPackage"
+echo Microsoft.BingWeather uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.GamingApp | Remove-AppxPackage"
+echo Microsoft.GamingApp uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.GetHelp | Remove-AppxPackage"
+echo Microsoft.GetHelp uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage"
+echo Microsoft.MicrosoftSolitaireCollection uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.People | Remove-AppxPackage"
+echo Microsoft.People uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.PowerAutomateDesktop | Remove-AppxPackage"
+echo Microsoft.PowerAutomateDesktop uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.Todos | Remove-AppxPackage"
+echo Microsoft.Todos uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.Whiteboard | Remove-AppxPackage"
+echo Microsoft.Whiteboard uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsAlarms | Remove-AppxPackage"
+echo Microsoft.WindowsAlarms uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsCamera | Remove-AppxPackage"
+echo Microsoft.WindowsCamera uninstalled.
+
+powershell -Command "Get-AppxPackage -Name microsoft.windowscommunicationsapps | Remove-AppxPackage"
+echo microsoft.windowscommunicationsapps uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsFeedbackHub | Remove-AppxPackage"
+echo Microsoft.WindowsFeedbackHub uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsMaps | Remove-AppxPackage"
+echo Microsoft.WindowsMaps uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsSoundRecorder | Remove-AppxPackage"
+echo Microsoft.WindowsSoundRecorder uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.WindowsTerminal | Remove-AppxPackage"
+echo Microsoft.WindowsTerminal uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.XboxGameCallableUI | Remove-AppxPackage"
+echo Microsoft.XboxGameCallableUI uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.Xbox.TCUI | Remove-AppxPackage"
+echo Microsoft.Xbox.TCUI uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.XboxGameOverlay | Remove-AppxPackage"
+echo Microsoft.XboxGameOverlay uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.XboxGamingOverlay | Remove-AppxPackage"
+echo Microsoft.XboxGamingOverlay uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.XboxSpeechToTextOverlay | Remove-AppxPackage"
+echo Microsoft.XboxSpeechToTextOverlay uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.YourPhone | Remove-AppxPackage"
+echo Microsoft.YourPhone uninstalled.
+
+powershell -Command "Get-AppxPackage -Name MicrosoftCorporation.MicrosoftFamily | Remove-AppxPackage"
+echo MicrosoftCorporation.MicrosoftFamily uninstalled.
+
+powershell -Command "Get-AppxPackage -Name Microsoft.XboxIdentityProvider | Remove-AppxPackage"
+echo Microsoft.XboxIdentityProvider uninstalled.
 
 echo UWP apps uninstalled.
 
