@@ -13,6 +13,33 @@ $UninstallPackages = @(
     "AD2F1837.HPQuickTouch"
     "AD2F1837.HPEasyClean"
     "AD2F1837.HPSystemInformation"
+    "Clipchamp.Clipchamp"
+    "Microsoft.BingNews"
+    "Microsoft.BingWeather"
+    "Microsoft.GamingApp"
+    "Microsoft.GetHelp"
+    "Microsoft.MicrosoftSolitaireCollection"
+    "Microsoft.People"
+    "Microsoft.PowerAutomateDesktop"
+    "Microsoft.Todos"
+    "Microsoft.Whiteboard"
+    "Microsoft.WindowsAlarms"
+    "Microsoft.WindowsCamera"
+    "microsoft.windowscommunicationsapps"
+    "Microsoft.WindowsFeedbackHub"
+    "Microsoft.WindowsMaps"
+    "Microsoft.WindowsSoundRecorder"
+    "Microsoft.WindowsTerminal"
+    "Microsoft.Xbox.TCUI"
+    "Microsoft.XboxGameOverlay"
+    "Microsoft.XboxGamingOverlay"
+    "Microsoft.XboxSpeechToTextOverlay"
+    "Microsoft.YourPhone"
+    "MicrosoftCorporationII.MicrosoftFamily"
+    "Microsoft.XboxIdentityProvider"
+    "Microsoft.Getstarted"
+    "Microsoft.549981C3F5F10"
+    "Microsoft.ZuneVideo"
 )
 
 # List of programs to uninstall
@@ -27,12 +54,15 @@ $UninstallPrograms = @(
     "HP Sure Click"
     "HP Sure Click Security Browser"
     "HP Sure Run"
+    "HP Sure Run Module"
     "HP Sure Recover"
     "HP Sure Sense"
     "HP Sure Sense Installer"
     "HP Wolf Security"
+    "HP Wolf Security - Console"
     "HP Wolf Security Application Support for Sure Sense"
     "HP Wolf Security Application Support for Windows"
+    "ICS"
 )
 
 $HPidentifier = "AD2F1837"
@@ -98,3 +128,23 @@ Try {
 Catch {
     Write-Warning -Object  "Failed to uninstall HP Wolf Security 2 using MSI - Error message: $($_.Exception.Message)"
 }
+
+# Disable transparency effects
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
+
+# Disable animations
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Animations /t REG_DWORD /d 0 /f
+
+# Set "Always show scrollbars" to YES
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Scrollbars /t REG_DWORD /d 1 /f
+
+# Set display zoom to 100%
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 96 /f
+
+Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
+
+winget install Google.Chrome
+winget install Jabra.Direct 
+winget install Poly.PlantronicsHub
+
+Restart-Computer
