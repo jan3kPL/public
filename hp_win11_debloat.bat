@@ -164,8 +164,9 @@ pause
 
 REM Try installing Google Chrome using winget
 winget install Google.Chrome
+winget install Jabra.Direct 
+winget install Poly.PlantronicsHub
 
 pause
-
 
 shutdown /r /t 0
