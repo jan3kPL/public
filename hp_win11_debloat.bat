@@ -16,7 +16,9 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 9
 
 echo Uninstalling UWP apps...
 
-:: Uninstall UWP apps one by one
+powershell -Command "Get-AppxPackage -Name AD2F1837.myHP | Remove-AppxPackage"
+echo AD2F1837.myHP uninstalled.
+
 powershell -Command "Get-AppxPackage -Name AD2F1837.HPPCHardwareDiagnosticsWindows | Remove-AppxPackage"
 echo AD2F1837.HPPCHardwareDiagnosticsWindows uninstalled.
 
@@ -34,9 +36,6 @@ echo AD2F1837.HPSupportAssistant uninstalled.
 
 powershell -Command "Get-AppxPackage -Name AD2F1837.HPSystemInformation | Remove-AppxPackage"
 echo AD2F1837.HPSystemInformation uninstalled.
-
-powershell -Command "Get-AppxPackage -Name AD2F1837.myHP | Remove-AppxPackage"
-echo AD2F1837.myHP uninstalled.
 
 powershell -Command "Get-AppxPackage -Name Clipchamp.Clipchamp | Remove-AppxPackage"
 echo Clipchamp.Clipchamp uninstalled.
@@ -88,9 +87,6 @@ echo Microsoft.WindowsSoundRecorder uninstalled.
 
 powershell -Command "Get-AppxPackage -Name Microsoft.WindowsTerminal | Remove-AppxPackage"
 echo Microsoft.WindowsTerminal uninstalled.
-
-powershell -Command "Get-AppxPackage -Name Microsoft.XboxGameCallableUI | Remove-AppxPackage"
-echo Microsoft.XboxGameCallableUI uninstalled.
 
 powershell -Command "Get-AppxPackage -Name Microsoft.Xbox.TCUI | Remove-AppxPackage"
 echo Microsoft.Xbox.TCUI uninstalled.
