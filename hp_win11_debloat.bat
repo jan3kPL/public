@@ -1,4 +1,6 @@
+title "Simple Setup Script - Jan Karol Sobania for TFB"
 @echo off
+
 
 
 REM Disable transparency effects
@@ -13,9 +15,7 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Scrollbars /t REG_DWORD /d 
 REM Set display zoom to 100%
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 96 /f
 
-@echo off
-
-echo Uninstalling UWP apps...
+REM Uninstalling UWP apps...
 
 powershell -Command "Get-AppxPackage -Name AD2F1837.myHP | Remove-AppxPackage"
 echo AD2F1837.myHP uninstalled.
@@ -126,33 +126,32 @@ echo Microsoft.549981C3F5F10 uninstalled.
 powershell -Command "Get-AppxPackage -Name Microsoft.ZuneVideo | Remove-AppxPackage"
 echo Microsoft.ZuneVideo uninstalled.
 
-
-echo UWP apps uninstalled.
-
 @echo off
 
 :: Get-WmiObject -Class Win32_Product | Where-Object { $_.Publisher -eq "HP Inc." } | ForEach-Object { $_.Uninstall() }
 
-:: Uninstall Win32 programs one by one
+REM Uninstall Win32 programs one by one
+
+Get-Package *HP* | Uninstall-Package
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Connection Optimizer' } | ForEach-Object { $_.Uninstall() }"
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Documentation' } | ForEach-Object { $_.Uninstall() }"
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Security Update Service' } | ForEach-Object { $_.Uninstall() }"
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Sure Recover' } | ForEach-Object { $_.Uninstall() }"
+
+powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Sure Run Module' } | ForEach-Object { $_.Uninstall() }"
 
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Wolf Security' uninstalled.
 
-echo Uninstalling Win32 program: HP Wolf Security - Console
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security - Console' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Wolf Security - Console' uninstalled.
 
-echo Uninstalling Win32 program: HP Notifications
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Notifications' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Notifications' uninstalled.
 
-echo Uninstalling Win32 program: HP Security Update Service
-powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Security Update Service' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Security Update Service' uninstalled.
 
-echo Uninstalling Win32 program: HP Sure Recover
-powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Sure Recover' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Sure Recover' uninstalled.
+
 
 echo Uninstalling Win32 program: HP Wolf Security Application Support for Sure Sense
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Wolf Security Application Support for Sure Sense' } | ForEach-Object { $_.Uninstall() }"
@@ -162,29 +161,10 @@ echo Uninstalling Win32 program: HP System Default Settings
 powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP System Default Settings' } | ForEach-Object { $_.Uninstall() }"
 echo Win32 program 'HP System Default Settings' uninstalled.
 
-echo Uninstalling Win32 program: HP Connection Optimizer
-powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Connection Optimizer' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Connection Optimizer' uninstalled.
 
-echo Uninstalling Win32 program: HP Documentation
-powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -eq 'HP Documentation' } | ForEach-Object { $_.Uninstall() }"
-echo Win32 program 'HP Documentation' uninstalled.
 
-echo Win32 programs uninstalled.
-
-echo Downloading TeamViewerQS
+REM  Downloading TeamViewerQS
 powershell Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
-
-
-REM Get the App Installer app ID
-powershell -Command "Get-AppxPackage -Name 'App Installer' | Select-Object PackageFullName"
-
-REM Check for an update for the App Installer app
-powershell -Command "Get-AppxPackage -Name '%App Installer PackageFullName%' | Update-AppxPackage -CheckOnly"
-
-REM Wait for user input
-echo Press ENTER to continue
-pause
 
 REM Try installing Google Chrome using winget
 winget install Google.Chrome
@@ -206,6 +186,10 @@ winget install Poly.PlantronicsHub
 ::        Write-Host "$($app.Name) uninstalled."
 ::    }
 ::}
+
+::Get-WmiObject -Class Win32_Product | Where-Object { $_.Name -like "HP*" } | ForEach-Object { $_.Uninstall() }
+
+
 
 pause
 
