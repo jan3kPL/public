@@ -1,5 +1,6 @@
 @echo off
 
+
 REM Disable transparency effects
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
 
@@ -129,6 +130,8 @@ echo Microsoft.ZuneVideo uninstalled.
 echo UWP apps uninstalled.
 
 @echo off
+
+:: Get-WmiObject -Class Win32_Product | Where-Object { $_.Publisher -eq "HP Inc." } | ForEach-Object { $_.Uninstall() }
 
 :: Uninstall Win32 programs one by one
 echo Uninstalling Win32 program: HP Wolf Security - Console
