@@ -24,5 +24,7 @@ powershell -Command "Get-WmiObject -Class Win32_Product | Where-Object { $_.Name
 
 echo Win32 programs uninstalled.
 
+Invoke-WebRequest -Uri https://download.teamviewer.com/QS -OutFile "$env:Desktop\TeamViewerQS.exe"
+
 echo Script completed. Please restart your computer for changes to take effect.
 pause
