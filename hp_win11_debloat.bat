@@ -1,13 +1,13 @@
 @echo off
 
-echo Disabling transparency effects, animations, and setting display zoom...
-
 REM Disable transparency effects
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v ColorPrevalence /t REG_DWORD /d 1 /f
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\DWM" /v EnableWindowColorization /t REG_DWORD /d 0 /f
 
 REM Disable animations
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Animations /t REG_DWORD /d 0 /f
+
+REM Set "Always show scrollbars" to YES
+reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Scrollbars /t REG_DWORD /d 1 /f
 
 REM Set display zoom to 100%
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 96 /f
