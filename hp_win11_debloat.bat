@@ -151,11 +151,6 @@ echo Win32 programs uninstalled.
 echo Downloading TeamViewerQS
 powershell Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
 
-REM Try installing Google Chrome using winget
-winget install Google.Chrome
-
-REM If winget failed to install Google Chrome, check for an update to the App Installer app
-IF ERRORLEVEL 1 (
 
 REM Get the App Installer app ID
 powershell -Command "Get-AppxPackage -Name 'App Installer' | Select-Object PackageFullName"
@@ -166,12 +161,11 @@ powershell -Command "Get-AppxPackage -Name '%App Installer PackageFullName%' | U
 REM Wait for user input
 echo Press ENTER to continue
 pause
-) ELSE (
 
-REM winget successfully installed Google Chrome
-echo Google Chrome was successfully installed using winget.
-)
+REM Try installing Google Chrome using winget
+winget install Google.Chrome
 
 pause
+
 
 shutdown /r /t 0
