@@ -151,6 +151,5 @@ winget install Poly.PlantronicsHub
 
 winget install Microsoft.Teams
 winget install Adobe.Acrobat.Reader.64-bit
-winget install AnyConnect
 
 Restart-Computer
