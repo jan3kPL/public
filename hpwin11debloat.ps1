@@ -146,7 +146,11 @@ reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v LogPixels /t REG_DWORD /d 9
 Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
 
 winget install Google.Chrome
+winget install Microsoft.Teams
 winget install Jabra.Direct 
 winget install Poly.PlantronicsHub
+
+# Adobe Reader via winget??? source - msstore
+winget install XPDP273C0XHQH2
 
 Restart-Computer
