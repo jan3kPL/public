@@ -151,5 +151,6 @@ winget install Poly.PlantronicsHub
 
 winget install Microsoft.Teams
 winget install Adobe.Acrobat.Reader.64-bit
+winget install 7zip.7zip
 
 Restart-Computer
