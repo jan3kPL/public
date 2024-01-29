@@ -1,4 +1,4 @@
-# powershell.exe -ExecutionPolicy Bypass -File "C:\Users\user\Desktop\ps1.ps1"
+	# powershell.exe -ExecutionPolicy Bypass -File "C:\Users\user\Downloads\hpwin11debloat.ps1"
 
 $UninstallPackages = @(
     "AD2F1837.HPJumpStarts"
