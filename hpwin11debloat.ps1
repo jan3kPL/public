@@ -52,14 +52,14 @@ $UninstallPrograms = @(
     "HP Documentation"
     "HP MAC Address Manager"
     "HP Notifications"
-	"HP PC Hardware Diagnostics Windows"
+    "HP PC Hardware Diagnostics Windows"
     "HP Power Manager"
     "HP Privacy Settings"
     "HP QuickDrop"
     "HP Security Update Service"
     "HP System Default Settings"
     "HP System Information"
-	"HP Support Assistant"
+    "HP Support Assistant"
     "HP Sure Click"
     "HP Sure Click Security Browser"
     "HP Sure Run"
@@ -71,7 +71,7 @@ $UninstallPrograms = @(
     "HP Wolf Security - Console"
     "HP Wolf Security Application Support for Sure Sense"
     "HP Wolf Security Application Support for Windows"
-	"ICS"
+    "ICS"
 )
 
 $HPidentifier = "AD2F1837"
@@ -141,12 +141,6 @@ Catch {
 
 Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
 
-winget install Google.Chrome
-winget install Jabra.Direct 
-winget install Poly.PlantronicsHub
-
-winget install Microsoft.Teams
-winget install Adobe.Acrobat.Reader.64-bit
-winget install 7zip.7zip
+winget install Google.Chrome Jabra.Direct Poly.PlantronicsHub Microsoft.Teams Adobe.Acrobat.Reader.64-bit 7zip.7zip 9WZDNCRFJ3PZ
 
 Restart-Computer
