@@ -23,6 +23,7 @@ $UninstallPackages = @(
     "Microsoft.MicrosoftSolitaireCollection"
     "Microsoft.People"
     "Microsoft.PowerAutomateDesktop"
+    "Microsoft.Teams"
     "Microsoft.Todos"
     "Microsoft.Whiteboard"
     "Microsoft.WindowsAlarms"
@@ -143,6 +144,12 @@ Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERP
 
 Restart-Computer
 
-winget install Google.Chrome Jabra.Direct Poly.PlantronicsHub Microsoft.Teams Adobe.Acrobat.Reader.64-bit 7zip.7zip 9WZDNCRFJ3PZ microsoft.teams
 
+#To do
+#map network drive
+#download and set wallpapers 
+#disable anims, transparency, set display zoom
+
+#Install Apps using WinGet
+winget install Google.Chrome Jabra.Direct Poly.PlantronicsHub Microsoft.Teams Adobe.Acrobat.Reader.64-bit 7zip.7zip 9WZDNCRFJ3PZ microsoft.teams
 
