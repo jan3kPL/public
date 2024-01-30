@@ -141,6 +141,8 @@ Catch {
 
 Invoke-WebRequest -Uri "https://download.teamviewer.com/QS" -OutFile "$env:USERPROFILE\Desktop\teamviewerqs.exe"
 
-winget install Google.Chrome Jabra.Direct Poly.PlantronicsHub Microsoft.Teams Adobe.Acrobat.Reader.64-bit 7zip.7zip 9WZDNCRFJ3PZ
-
 Restart-Computer
+
+winget install Google.Chrome Jabra.Direct Poly.PlantronicsHub Microsoft.Teams Adobe.Acrobat.Reader.64-bit 7zip.7zip 9WZDNCRFJ3PZ microsoft.teams
+
+
